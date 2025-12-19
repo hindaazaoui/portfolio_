@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelance — Hind Aazaoui</title>
+    <style>
+        @font-face {
+            font-family: 'Lemon Milk';
+            src: url('https://fonts.cdnfonts.com/s/18714/LEMONMILK-Regular.woff') format('woff');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: 'Lemon Milk';
+            src: url('https://fonts.cdnfonts.com/s/18714/LEMONMILK-Bold.woff') format('woff');
+            font-weight: 700;
+        }
+        @font-face {
+            font-family: 'Lemon Milk';
+            src: url('https://fonts.cdnfonts.com/s/18714/LEMONMILK-Light.woff') format('woff');
+            font-weight: 300;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Lemon Milk', sans-serif; background: #fff; color: #000; }
+        ::selection { background: #000; color: #fff; }
+        a { color: inherit; text-decoration: none; }
+
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 32px;
+            background: #fff;
+            border-bottom: 1px solid #000;
+        }
+
+        .logo { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; }
+        
+        .nav-back {
+            font-size: 10px;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            transition: opacity 0.2s ease;
+        }
+        .nav-back:hover { opacity: 0.5; }
+
+        .project-hero {
+            padding: 120px 32px 64px;
+            border-bottom: 1px solid #000;
+        }
+
+        .project-number {
+            font-size: 10px;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            opacity: 0.5;
+            margin-bottom: 24px;
+        }
+
+        .project-title {
+            font-size: clamp(36px, 10vw, 100px);
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+        }
+
+        .project-title .stroke {
+            -webkit-text-stroke: 1.5px #000;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item { display: flex; flex-direction: column; gap: 4px; }
+        .meta-label { font-size: 9px; font-weight: 300; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.5; }
+        .meta-value { font-size: 11px; font-weight: 700; letter-spacing: 0.05em; }
+
+        .project-intro {
+            padding: 48px 32px;
+            border-bottom: 1px solid #000;
+            max-width: 700px;
+        }
+
+        .intro-text {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.8;
+            letter-spacing: 0.02em;
+        }
+
+        .services-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-bottom: 1px solid #000;
+        }
+
+        .service-item {
+            padding: 48px 32px;
+            border-right: 1px solid #000;
+            transition: all 0.2s ease;
+        }
+        .service-item:last-child { border-right: none; }
+        .service-item:hover { background: #f8f8f8; }
+
+        .service-icon {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .service-title {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .service-desc {
+            font-size: 11px;
+            font-weight: 300;
+            line-height: 1.7;
+            letter-spacing: 0.02em;
+            opacity: 0.7;
+        }
+
+        .clients-section {
+            border-bottom: 1px solid #000;
+        }
+
+        .section-header {
+            padding: 24px 32px;
+            border-bottom: 1px solid #000;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .client-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr auto;
+            align-items: center;
+            padding: 24px 32px;
+            border-bottom: 1px solid #eee;
+            transition: all 0.2s ease;
+        }
+        .client-item:last-child { border-bottom: none; }
+        .client-item:hover { background: #000; color: #fff; }
+
+        .client-name { font-size: 14px; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; }
+        .client-type { font-size: 10px; font-weight: 300; letter-spacing: 0.05em; opacity: 0.6; }
+        .client-mission { font-size: 10px; font-weight: 400; letter-spacing: 0.05em; }
+        .client-year { font-size: 10px; font-weight: 300; opacity: 0.4; }
+
+        .project-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-bottom: 1px solid #000;
+        }
+
+        .stat-item {
+            padding: 48px 32px;
+            text-align: center;
+            border-right: 1px solid #000;
+        }
+        .stat-item:last-child { border-right: none; }
+
+        .stat-value {
+            font-size: clamp(32px, 6vw, 56px);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .stat-value .stroke {
+            -webkit-text-stroke: 1.5px #000;
+            -webkit-text-fill-color: transparent;
+        }
+        .stat-label {
+            font-size: 9px;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            opacity: 0.6;
+        }
+
+        .project-cta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 32px;
+            background: #000;
+            color: #fff;
+            transition: all 0.2s ease;
+        }
+        .project-cta:hover { background: #fff; color: #000; }
+
+        .cta-text { font-size: 11px; font-weight: 400; letter-spacing: 0.05em; }
+        .cta-arrow { font-size: 18px; transition: transform 0.2s ease; }
+        .project-cta:hover .cta-arrow { transform: translateX(4px); }
+
+        .project-nav {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .project-nav-item {
+            padding: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s ease;
+            border-right: 1px solid #000;
+        }
+        .project-nav-item:last-child { border-right: none; }
+        .project-nav-item:hover { background: #000; color: #fff; }
+
+        .nav-direction { font-size: 9px; font-weight: 300; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.5; }
+        .nav-project-title { font-size: 14px; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 32px;
+            border-top: 1px solid #000;
+            font-size: 9px;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 16px 20px; }
+            .project-hero { padding: 100px 20px 48px; }
+            .project-meta { flex-direction: column; gap: 24px; }
+            .project-intro { padding: 32px 20px; }
+            .services-section { grid-template-columns: 1fr; }
+            .service-item { border-right: none; border-bottom: 1px solid #000; }
+            .service-item:last-child { border-bottom: none; }
+            .section-header { padding: 20px; }
+            .client-item { grid-template-columns: 1fr; gap: 8px; padding: 20px; }
+            .project-stats { grid-template-columns: 1fr; }
+            .stat-item { border-right: none; border-bottom: 1px solid #000; }
+            .stat-item:last-child { border-bottom: none; }
+            .project-nav { grid-template-columns: 1fr; }
+            .project-nav-item { border-right: none; border-bottom: 1px solid #000; }
+            .project-nav-item:last-child { border-bottom: none; }
+            footer { padding: 16px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">HIND AAZAOUI</a>
+        <a href="index.html" class="nav-back">← Retour</a>
+    </nav>
+
+    <section class="project-hero">
+        <p class="project-number">Projet 04</p>
+        <h1 class="project-title"><span class="stroke">FREE</span><br>LANCE</h1>
+        <div class="project-meta">
+            <div class="meta-item">
+                <span class="meta-label">Statut</span>
+                <span class="meta-value">Indépendante</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Secteurs</span>
+                <span class="meta-value">Culture, Associatif, PME</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Période</span>
+                <span class="meta-value">2024 — Présent</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Services</span>
+                <span class="meta-value">Web, Design, Contenu</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-intro">
+        <p class="intro-text">
+            En parallèle de ma formation, j'accompagne des clients variés sur leurs projets digitaux : sites web, identités visuelles, contenus. Des missions concrètes avec des retours concrets.
+        </p>
+    </section>
+
+    <section class="services-section">
+        <div class="service-item">
+            <div class="service-icon">💻</div>
+            <h3 class="service-title">Sites web</h3>
+            <p class="service-desc">Création de sites vitrines et portfolios. Responsive, accessibles, optimisés SEO.</p>
+        </div>
+        <div class="service-item">
+            <div class="service-icon">🎨</div>
+            <h3 class="service-title">Identité visuelle</h3>
+            <p class="service-desc">Logos, chartes graphiques, déclinaisons print et digital.</p>
+        </div>
+        <div class="service-item">
+            <div class="service-icon">✍️</div>
+            <h3 class="service-title">Contenus</h3>
+            <p class="service-desc">Rédaction web, stratégie éditoriale, community management.</p>
+        </div>
+    </section>
+
+    <section class="clients-section">
+        <div class="section-header">Clients & Missions</div>
+        <div class="client-item">
+            <span class="client-name">Client A</span>
+            <span class="client-type">Association culturelle</span>
+            <span class="client-mission">Site web + Identité visuelle</span>
+            <span class="client-year">2024</span>
+        </div>
+        <div class="client-item">
+            <span class="client-name">Client B</span>
+            <span class="client-type">Artiste indépendant</span>
+            <span class="client-mission">Portfolio + Stratégie RS</span>
+            <span class="client-year">2024</span>
+        </div>
+        <div class="client-item">
+            <span class="client-name">Client C</span>
+            <span class="client-type">PME locale</span>
+            <span class="client-mission">Refonte site + SEO</span>
+            <span class="client-year">2025</span>
+        </div>
+        <div class="client-item">
+            <span class="client-name">Client D</span>
+            <span class="client-type">Événementiel</span>
+            <span class="client-mission">Supports de communication</span>
+            <span class="client-year">2025</span>
+        </div>
+    </section>
+
+    <section class="project-stats">
+        <div class="stat-item">
+            <p class="stat-value"><span class="stroke">5</span>+</p>
+            <p class="stat-label">Clients accompagnés</p>
+        </div>
+        <div class="stat-item">
+            <p class="stat-value">100<span class="stroke">%</span></p>
+            <p class="stat-label">Satisfaction</p>
+        </div>
+        <div class="stat-item">
+            <p class="stat-value"><span class="stroke">∞</span></p>
+            <p class="stat-label">Envie de continuer</p>
+        </div>
+    </section>
+
+    <a href="mailto:hind.aazaoui.pro@gmail.com" class="project-cta">
+        <span class="cta-text">Un projet ? Discutons de vos besoins.</span>
+        <span class="cta-arrow">→</span>
+    </a>
+
+    <nav class="project-nav">
+        <a href="projet-mmi.html" class="project-nav-item">
+            <div>
+                <p class="nav-direction">Précédent</p>
+                <p class="nav-project-title">Projet MMI</p>
+            </div>
+            <span>←</span>
+        </a>
+        <a href="projet-bozar.html" class="project-nav-item">
+            <div>
+                <p class="nav-direction">Suivant</p>
+                <p class="nav-project-title">Bozar Rooftop</p>
+            </div>
+            <span>→</span>
+        </a>
+    </nav>
+
+    <footer>
+        <p>© 2025</p>
+        <p>Hind Aazaoui</p>
+    </footer>
+</body>
+</html>
