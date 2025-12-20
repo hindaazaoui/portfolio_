@@ -5,330 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bozar Rooftop — Hind Aazaoui</title>
     <style>
-        @font-face {
-            font-family: 'Lemon Milk';
-            src: url('https://fonts.cdnfonts.com/s/18714/LEMONMILK-Regular.woff') format('woff');
-            font-weight: 400;
-        }
-        @font-face {
-            font-family: 'Lemon Milk';
-            src: url('https://fonts.cdnfonts.com/s/18714/LEMONMILK-Bold.woff') format('woff');
-            font-weight: 700;
-        }
-        @font-face {
-            font-family: 'Lemon Milk';
-            src: url('https://fonts.cdnfonts.com/s/18714/LEMONMILK-Light.woff') format('woff');
-            font-weight: 300;
-        }
-
+        @import url('https://fonts.cdnfonts.com/css/lemon-milk');
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Lemon Milk', sans-serif; background: #fff; color: #000; }
-        ::selection { background: #000; color: #fff; }
-        a { color: inherit; text-decoration: none; }
+        body { font-family: 'Lemon Milk', sans-serif; line-height: 1.6; }
 
-        /* NAV FIXE EN HAUT */
-        .top-nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 24px;
-            background: #fff;
-            border-bottom: 1px solid #000;
-        }
+        /* NAVIGATION & CAROUSEL (Identique à l'accueil pour l'UX) */
+        nav { position: fixed; top: 0; width: 100%; z-index: 1000; display: flex; justify-content: space-between; padding: 20px 40px; background: #fff; border-bottom: 1px solid #000; }
+        .project-nav { margin-top: 61px; display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid #000; }
+        .nav-item { padding: 20px; text-decoration: none; color: #000; border-right: 1px solid #000; text-align: center; font-size: 10px; transition: 0.3s; }
+        .nav-item:hover { background: #000; color: #fff; }
 
-        .logo { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; }
-        .logo:hover { opacity: 0.5; }
+        /* HERO PROJET */
+        .project-hero { padding: 80px 40px; text-align: center; border-bottom: 1px solid #000; }
+        .project-hero h1 { font-size: clamp(30px, 8vw, 80px); text-transform: uppercase; margin-bottom: 30px; }
+        .stroke { -webkit-text-stroke: 1px #000; -webkit-text-fill-color: transparent; }
         
-        .nav-links { display: flex; gap: 20px; }
-        .nav-link { font-size: 10px; font-weight: 400; letter-spacing: 0.1em; }
-        .nav-link:hover { opacity: 0.5; }
+        .meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+        .meta-label { font-size: 8px; opacity: 0.5; text-transform: uppercase; }
+        .meta-val { font-size: 11px; font-weight: 700; }
 
-        /* CARROUSEL PROJETS */
-        .project-carousel {
-            margin-top: 52px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            border-bottom: 1px solid #000;
-        }
-
-        .carousel-item {
-            padding: 16px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-right: 1px solid #000;
-            transition: background 0.2s;
-        }
-        .carousel-item:last-child { border-right: none; }
-        .carousel-item:hover { background: #000; color: #fff; }
-
-        .carousel-direction { font-size: 8px; font-weight: 300; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.5; }
-        .carousel-title { font-size: 11px; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; }
-
-        /* HERO - TITRE DU PROJET */
-        .hero {
-            padding: 40px 24px;
-            text-align: center;
-            border-bottom: 1px solid #000;
-        }
-
-        .project-number {
-            font-size: 9px;
-            font-weight: 300;
-            letter-spacing: 0.1em;
-            opacity: 0.5;
-            margin-bottom: 16px;
-        }
-
-        .project-title {
-            font-size: 48px;
-            font-weight: 700;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-            text-transform: uppercase;
-            margin-bottom: 24px;
-        }
-
-        .project-title .outline {
-            -webkit-text-stroke: 1px #000;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .meta-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        .meta-item { text-align: center; }
-        .meta-label { font-size: 8px; font-weight: 300; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.5; margin-bottom: 4px; }
-        .meta-value { font-size: 10px; font-weight: 700; letter-spacing: 0.02em; }
-
-        /* IMAGE */
-        .project-image {
-            width: 100%;
-            aspect-ratio: 16/9;
-            background: #f5f5f5;
-            border-bottom: 1px solid #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
-            font-weight: 300;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: #999;
-        }
-
-        /* CONTENU */
-        .content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            border-bottom: 1px solid #000;
-        }
-
-        .content-block { padding: 40px 24px; }
-        .content-block:first-child { border-right: 1px solid #000; }
-
-        .section-title {
-            font-size: 9px;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .section-text {
-            font-size: 11px;
-            font-weight: 300;
-            line-height: 1.8;
-        }
-
-        .missions-list { display: flex; flex-direction: column; gap: 10px; }
-        .mission-item {
-            font-size: 10px;
-            font-weight: 400;
-            padding-left: 12px;
-            position: relative;
-        }
-        .mission-item::before {
-            content: '–';
-            position: absolute;
-            left: 0;
-            opacity: 0.4;
-        }
+        /* MOCKUP SECTION (UX CLÉ) */
+        .showcase { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid #000; background: #f9f9f9; }
+        .iphone-box { padding: 60px; display: flex; justify-content: center; border-right: 1px solid #000; }
+        .mockup { width: 250px; height: 500px; background: #000; border-radius: 40px; border: 8px solid #000; box-shadow: 0 30px 60px rgba(0,0,0,0.1); overflow: hidden; }
+        
+        .text-content { padding: 60px; }
+        .section-title { font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 20px; }
 
         /* STATS */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            border-bottom: 1px solid #000;
-        }
-
-        .stat-item {
-            padding: 40px 24px;
-            text-align: center;
-            border-right: 1px solid #000;
-        }
-        .stat-item:last-child { border-right: none; }
-
-        .stat-value {
-            font-size: 36px;
-            font-weight: 700;
-            line-height: 1;
-            margin-bottom: 8px;
-        }
-        .stat-value .outline {
-            -webkit-text-stroke: 1px #000;
-            -webkit-text-fill-color: transparent;
-        }
-        .stat-label {
-            font-size: 8px;
-            font-weight: 300;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            opacity: 0.5;
-        }
-
-        /* FOOTER */
-        footer {
-            display: flex;
-            justify-content: space-between;
-            padding: 16px 24px;
-            font-size: 8px;
-            font-weight: 300;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 600px) {
-            .top-nav { padding: 12px 16px; }
-            .logo { font-size: 8px; }
-            .nav-link { font-size: 8px; }
-            .nav-links { gap: 12px; }
-
-            .project-carousel { margin-top: 44px; grid-template-columns: 1fr; }
-            .carousel-item { padding: 14px 16px; border-right: none; border-bottom: 1px solid #000; }
-            .carousel-item:last-child { border-bottom: none; }
-
-            .hero { padding: 32px 16px; }
-            .project-number { font-size: 8px; margin-bottom: 12px; }
-            .project-title { font-size: 28px; margin-bottom: 20px; }
-
-            .meta-grid { gap: 12px; }
-            .meta-label { font-size: 7px; }
-            .meta-value { font-size: 9px; }
-
-            .project-image { aspect-ratio: 4/3; }
-
-            .content { grid-template-columns: 1fr; }
-            .content-block { padding: 32px 16px; }
-            .content-block:first-child { border-right: none; border-bottom: 1px solid #000; }
-
-            .stats { grid-template-columns: 1fr; }
-            .stat-item { padding: 32px 16px; border-right: none; border-bottom: 1px solid #000; }
-            .stat-item:last-child { border-bottom: none; }
-            .stat-value { font-size: 28px; }
-
-            footer { padding: 12px 16px; }
-        }
+        .stats-bar { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid #000; }
+        .stat { padding: 40px; text-align: center; border-right: 1px solid #000; }
+        .stat-val { font-size: 40px; font-weight: 700; display: block; }
     </style>
 </head>
 <body>
-    <nav class="top-nav">
-        <a href="index.html" class="logo">HIND AAZAOUI</a>
-        <div class="nav-links">
-            <a href="index.html" class="nav-link">Accueil</a>
-            <a href="index.html#contact" class="nav-link">Contact</a>
-        </div>
+    <nav>
+        <a href="index.html" style="text-decoration: none; color: #000; font-size: 12px;">HIND AAZAOUI</a>
+        <a href="index.html#contact" style="text-decoration: none; color: #000; font-size: 10px; border: 1px solid #000; padding: 5px 10px;">Contact</a>
     </nav>
 
-    <nav class="project-carousel">
-        <a href="projet-freelance.html" class="carousel-item">
-            <div>
-                <p class="carousel-direction">Précédent</p>
-                <p class="carousel-title">Freelance</p>
-            </div>
-            <span>←</span>
-        </a>
-        <a href="projet-letype.html" class="carousel-item">
-            <div>
-                <p class="carousel-direction">Suivant</p>
-                <p class="carousel-title">Le Type</p>
-            </div>
-            <span>→</span>
-        </a>
-    </nav>
+    <div class="project-nav">
+        <a href="projet-freelance.html" class="nav-item">← Projet Précédent</a>
+        <a href="projet-letype.html" class="nav-item" style="border-right: none;">Projet Suivant →</a>
+    </div>
 
-    <section class="hero">
-        <p class="project-number">Projet 01</p>
-        <h1 class="project-title">BOZAR<br><span class="outline">ROOFTOP</span></h1>
+    <header class="project-hero">
+        <p style="font-size: 10px; margin-bottom: 10px;">01 / INSTAGRAM & ÉVÉNEMENTIEL</p>
+        <h1>Bozar <span class="stroke">Rooftop</span></h1>
         <div class="meta-grid">
-            <div class="meta-item">
-                <p class="meta-label">Client</p>
-                <p class="meta-value">Bozar — Palais des Beaux-Arts</p>
+            <div class="meta-item"><p class="meta-label">Rôle</p><p class="meta-val">CM & Coordination</p></div>
+            <div class="meta-item"><p class="meta-label">Lieu</p><p class="meta-val">Bruxelles</p></div>
+            <div class="meta-item"><p class="meta-label">Période</p><p class="meta-val">Été 2024</p></div>
+        </div>
+    </header>
+
+    <section class="showcase">
+        <div class="iphone-box">
+            <div class="mockup">
+                <div style="background: #eee; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #aaa;">SCREENSHOT INSTAGRAM</div>
             </div>
-            <div class="meta-item">
-                <p class="meta-label">Lieu</p>
-                <p class="meta-value">Bruxelles, Belgique</p>
-            </div>
-            <div class="meta-item">
-                <p class="meta-label">Période</p>
-                <p class="meta-value">Été 2024</p>
-            </div>
-            <div class="meta-item">
-                <p class="meta-label">Rôle</p>
-                <p class="meta-value">CM & Coordination</p>
-            </div>
+        </div>
+        <div class="text-content">
+            <h2 class="section-title">Le Projet</h2>
+            <p>Gestion complète de la communication digitale pour l'espace estival du Palais des Beaux-Arts. Transition d'une image institutionnelle vers un lieu de vie vibrant.</p>
+            <br>
+            <h2 class="section-title">Expertise</h2>
+            <p>— Stratégie de contenu vertical (Reels)<br>— Coordination logistique artistes<br>— Community Management</p>
         </div>
     </section>
 
-    <div class="project-image">Image du projet</div>
-
-    <section class="content">
-        <div class="content-block">
-            <h2 class="section-title">Le projet</h2>
-            <p class="section-text">
-                Gestion complète de la communication digitale et coordination événementielle pour la programmation estivale du Bozar Rooftop, espace culturel en plein air du Palais des Beaux-Arts de Bruxelles.<br><br>
-                Une mission en autonomie totale, de la stratégie éditoriale à l'exécution.
-            </p>
-        </div>
-        <div class="content-block">
-            <h2 class="section-title">Missions</h2>
-            <div class="missions-list">
-                <p class="mission-item">Gestion du compte Instagram</p>
-                <p class="mission-item">Création de contenus visuels</p>
-                <p class="mission-item">Rédaction des newsletters</p>
-                <p class="mission-item">Coordination artistes</p>
-                <p class="mission-item">Community management</p>
-            </div>
-        </div>
+    <section class="stats-bar">
+        <div class="stat"><span class="stat-val stroke">12</span><span class="meta-label">Événements</span></div>
+        <div class="stat"><span class="stat-val">100%</span><span class="meta-label">Autonomie</span></div>
+        <div class="stat" style="border-right: none;"><span class="stat-val stroke">01</span><span class="meta-label">Saison</span></div>
     </section>
 
-    <section class="stats">
-        <div class="stat-item">
-            <p class="stat-value"><span class="outline">12</span>+</p>
-            <p class="stat-label">Événements</p>
-        </div>
-        <div class="stat-item">
-            <p class="stat-value">100<span class="outline">%</span></p>
-            <p class="stat-label">Autonomie</p>
-        </div>
-        <div class="stat-item">
-            <p class="stat-value"><span class="outline">1</span></p>
-            <p class="stat-label">Été inoubliable</p>
-        </div>
-    </section>
-
-    <footer>
-        <p>© 2025</p>
-        <p>Hind Aazaoui</p>
+    <footer style="padding: 40px; display: flex; justify-content: space-between; font-size: 10px;">
+        <p>© 2025 Hind Aazaoui</p>
+        <p>BUT MMI Bordeaux</p>
     </footer>
 </body>
 </html>
