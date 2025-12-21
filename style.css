@@ -77,35 +77,31 @@ nav {
 /* === NAVIGATION PROJET === */
 .project-nav {
     margin-top: 61px;
+    padding: 16px 32px;
+    border-bottom: 1px solid #000;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 32px;
-    background: #000;
-    border-bottom: 1px solid #333;
 }
 
 .project-nav a {
     font-size: 10px;
-    letter-spacing: 0.08em;
-    color: #fff;
-    padding: 10px 16px;
-    transition: all 0.2s ease;
+    letter-spacing: 0.05em;
+    opacity: 0.6;
+    transition: opacity 0.2s;
 }
 
 .project-nav a:hover {
-    opacity: 0.6;
-}
-
-.project-nav a.nav-home {
-    font-weight: 700;
-    border: 1px solid #fff;
-}
-
-.project-nav a.nav-home:hover {
-    background: #fff;
-    color: #000;
     opacity: 1;
+}
+
+.project-nav .nav-arrows {
+    display: flex;
+    gap: 24px;
+}
+
+.project-nav .nav-arrows a {
+    padding: 8px 0;
 }
 
 /* === HERO ACCUEIL === */
@@ -589,15 +585,17 @@ footer {
         padding: 16px 20px;
     }
 
-    /* Nav projet mobile */
     .project-nav {
         margin-top: 57px;
-        padding: 10px 16px;
+        padding: 14px 20px;
     }
 
     .project-nav a {
         font-size: 9px;
-        padding: 8px 12px;
+    }
+
+    .project-nav .nav-arrows {
+        gap: 16px;
     }
 
     .hero-content {
