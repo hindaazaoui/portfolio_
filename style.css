@@ -1,0 +1,759 @@
+/* ========================================
+   HIND AAZAOUI — PORTFOLIO
+   Styles partagés
+   ======================================== */
+
+@import url('https://fonts.cdnfonts.com/css/lemon-milk');
+
+/* === RESET & BASE === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Lemon Milk', sans-serif;
+    background: #fff;
+    color: #000;
+    line-height: 1.6;
+}
+
+::selection {
+    background: #000;
+    color: #fff;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* === UTILITAIRES === */
+.stroke {
+    -webkit-text-stroke: 1.5px #000;
+    -webkit-text-fill-color: transparent;
+}
+
+/* === NAVIGATION === */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 32px;
+    background: #fff;
+    border-bottom: 1px solid #000;
+}
+
+.logo {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.nav-contact {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    padding: 10px 20px;
+    border: 1px solid #000;
+    transition: all 0.2s ease;
+}
+
+.nav-contact:hover {
+    background: #000;
+    color: #fff;
+}
+
+/* === NAVIGATION PROJET === */
+.project-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 0;
+    background: #000;
+    border-top: 1px solid #333;
+}
+
+.project-nav a {
+    flex: 1;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    padding: 16px 12px;
+    text-align: center;
+    color: #fff;
+    transition: all 0.2s ease;
+    border-right: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-nav a:last-child {
+    border-right: none;
+}
+
+.project-nav a:hover {
+    background: #fff;
+    color: #000;
+}
+
+.project-nav a.nav-home {
+    flex: 0.8;
+    font-weight: 700;
+}
+
+/* === HERO ACCUEIL === */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-bottom: 1px solid #000;
+}
+
+.hero-content {
+    padding: 140px 32px 0;
+}
+
+.hero-title {
+    font-size: clamp(44px, 11vw, 140px);
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+}
+
+.hero-baseline {
+    margin-top: 48px;
+    font-size: clamp(13px, 1.8vw, 16px);
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    opacity: 0.7;
+    max-width: 400px;
+}
+
+.hero-sub {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 32px;
+    border-top: 1px solid #000;
+}
+
+.hero-role {
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.hero-available {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hero-available::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: #000;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* === HEADER PROJET === */
+.header-projet {
+    padding: 100px 32px 60px;
+    border-bottom: 1px solid #000;
+}
+
+.header-projet .label {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    opacity: 0.5;
+    margin-bottom: 16px;
+}
+
+.header-projet h1 {
+    font-size: clamp(32px, 8vw, 90px);
+    text-transform: uppercase;
+    line-height: 0.95;
+}
+
+/* Espace pour la nav fixe en bas */
+body:has(.project-nav) footer {
+    margin-bottom: 60px;
+}
+
+/* === LISTE PROJETS ACCUEIL === */
+.projects {
+    border-bottom: 1px solid #000;
+}
+
+.project {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 32px;
+    border-bottom: 1px solid #000;
+    transition: all 0.2s ease;
+}
+
+.project:last-child {
+    border-bottom: none;
+}
+
+.project:hover {
+    background: #000;
+    color: #fff;
+}
+
+.project:hover .stroke {
+    -webkit-text-stroke-color: #fff;
+}
+
+.project:hover .project-arrow {
+    transform: translate(4px, -4px);
+}
+
+.project-main {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+}
+
+.project-number {
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    opacity: 0.5;
+}
+
+.project-title {
+    font-size: clamp(20px, 4vw, 36px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+}
+
+.project-tag {
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-left: 20px;
+    opacity: 0.6;
+}
+
+.project-arrow {
+    font-size: 20px;
+    transition: transform 0.2s ease;
+}
+
+/* === DASHBOARD (métadonnées projet) === */
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-bottom: 1px solid #000;
+}
+
+.dashboard-item {
+    padding: 32px;
+    border-right: 1px solid #000;
+}
+
+.dashboard-item:last-child {
+    border-right: none;
+}
+
+.dashboard-item .label {
+    font-size: 8px;
+    opacity: 0.5;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.dashboard-item .value {
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* === SHOWCASE (mockup + texte) === */
+.showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid #000;
+    background: #fafafa;
+}
+
+.showcase-visual {
+    padding: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid #000;
+}
+
+.mockup-phone {
+    width: 260px;
+    height: 520px;
+    background: #000;
+    border-radius: 40px;
+    border: 10px solid #000;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.mockup-tablet {
+    width: 380px;
+    height: 280px;
+    background: #000;
+    border-radius: 20px;
+    border: 10px solid #000;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.mockup-placeholder {
+    background: #eee;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+}
+
+.showcase-text {
+    padding: 60px 40px;
+}
+
+.showcase-text h2 {
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    border-left: 4px solid #000;
+    padding-left: 15px;
+}
+
+.showcase-text p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.8;
+    max-width: 420px;
+}
+
+.showcase-text p + h2 {
+    margin-top: 40px;
+}
+
+/* === STATS === */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: #000;
+    color: #fff;
+}
+
+.stats-item {
+    padding: 50px 32px;
+    text-align: center;
+    border-right: 1px solid #333;
+}
+
+.stats-item:last-child {
+    border-right: none;
+}
+
+.stats-item .value {
+    font-size: 46px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.stats-item .value.outline {
+    -webkit-text-stroke: 1px #fff;
+    -webkit-text-fill-color: transparent;
+}
+
+.stats-item .label {
+    font-size: 8px;
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* === CONTACT === */
+.contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.contact-left {
+    padding: 48px 32px;
+    border-right: 1px solid #000;
+}
+
+.contact-title {
+    font-size: clamp(28px, 5vw, 56px);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 0.95;
+}
+
+.contact-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-link {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 32px;
+    border-bottom: 1px solid #000;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease;
+}
+
+.contact-link:last-child {
+    border-bottom: none;
+}
+
+.contact-link:hover {
+    background: #000;
+    color: #fff;
+    padding-left: 40px;
+}
+
+.contact-link span {
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.5;
+}
+
+/* === FOOTER === */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 32px;
+    border-top: 1px solid #000;
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* Pages projet : espace pour la nav fixe */
+.page-projet footer {
+    margin-bottom: 56px;
+}
+
+/* === LINKS BAR === */
+.links-bar {
+    display: flex;
+    border-bottom: 1px solid #000;
+}
+
+.links-bar a {
+    flex: 1;
+    padding: 16px 32px;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    text-align: center;
+    border-right: 1px solid #000;
+    transition: all 0.2s ease;
+}
+
+.links-bar a:last-child {
+    border-right: none;
+}
+
+.links-bar a:hover {
+    background: #000;
+    color: #fff;
+}
+
+/* === MOCKUPS CLIQUABLES === */
+.mockup-link {
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.mockup-link:hover {
+    transform: scale(1.02);
+}
+
+.mockup-phone,
+.mockup-tablet {
+    position: relative;
+}
+
+.mockup-phone img,
+.mockup-tablet img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.85);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 20px;
+    padding-left: 4px;
+}
+
+.mockup-video {
+    background: #000;
+    color: #fff;
+    width: 100%;
+    max-width: 320px;
+    padding: 48px 32px;
+    text-align: center;
+    position: relative;
+}
+
+.mockup-video-label {
+    font-size: 9px;
+    opacity: 0.5;
+    letter-spacing: 0.15em;
+    margin-bottom: 16px;
+}
+
+.mockup-video-title {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.play-btn-dark {
+    margin-top: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    font-size: 16px;
+    padding-left: 3px;
+}
+
+.mockup-poster {
+    width: 260px;
+    height: 380px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+.mockup-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    nav {
+        padding: 16px 20px;
+    }
+
+    .hero-content {
+        padding: 120px 20px 0;
+    }
+
+    .hero-sub {
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px;
+        align-items: flex-start;
+    }
+
+    .header-projet {
+        padding: 80px 20px 40px;
+    }
+
+    .project {
+        padding: 24px 20px;
+    }
+
+    .project-main {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .project-tag {
+        margin-left: 0;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .dashboard-item {
+        border-bottom: 1px solid #000;
+        padding: 20px;
+    }
+
+    .dashboard-item:nth-child(2),
+    .dashboard-item:nth-child(4) {
+        border-right: none;
+    }
+
+    .showcase {
+        grid-template-columns: 1fr;
+    }
+
+    .showcase-visual {
+        border-right: none;
+        border-bottom: 1px solid #000;
+        padding: 40px 20px;
+    }
+
+    .mockup-phone {
+        width: 220px;
+        height: 440px;
+    }
+
+    .mockup-tablet {
+        width: 100%;
+        max-width: 320px;
+        height: 220px;
+    }
+
+    .mockup-video {
+        max-width: 100%;
+        padding: 40px 24px;
+    }
+
+    .showcase-text {
+        padding: 32px 20px;
+    }
+
+    .showcase-text h2 {
+        font-size: 11px;
+        margin-bottom: 16px;
+    }
+
+    .showcase-text p {
+        font-size: 13px;
+    }
+
+    .links-bar {
+        flex-direction: column;
+    }
+
+    .links-bar a {
+        border-right: none;
+        border-bottom: 1px solid #000;
+        padding: 14px 20px;
+    }
+
+    .links-bar a:last-child {
+        border-bottom: none;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-item {
+        border-right: none;
+        border-bottom: 1px solid #333;
+        padding: 32px 20px;
+    }
+
+    .stats-item:last-child {
+        border-bottom: none;
+    }
+
+    .stats-item .value {
+        font-size: 36px;
+    }
+
+    .contact {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-left {
+        border-right: none;
+        border-bottom: 1px solid #000;
+        padding: 32px 20px;
+    }
+
+    .contact-link {
+        padding: 20px;
+    }
+
+    footer {
+        padding: 16px 20px;
+        font-size: 8px;
+    }
+
+    .project-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+    }
+
+    .project-nav a {
+        padding: 14px 6px;
+        font-size: 9px;
+        letter-spacing: 0.02em;
+    }
+
+    .mockup-poster {
+        width: 200px;
+        height: 290px;
+    }
+}
