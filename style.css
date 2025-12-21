@@ -76,45 +76,36 @@ nav {
 
 /* === NAVIGATION PROJET === */
 .project-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
+    margin-top: 61px;
     display: flex;
     justify-content: space-between;
-    align-items: stretch;
-    padding: 0;
+    align-items: center;
+    padding: 12px 32px;
     background: #000;
-    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
 }
 
 .project-nav a {
-    flex: 1;
-    font-size: 9px;
+    font-size: 10px;
     letter-spacing: 0.08em;
-    padding: 16px 12px;
-    text-align: center;
     color: #fff;
+    padding: 10px 16px;
     transition: all 0.2s ease;
-    border-right: 1px solid #333;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.project-nav a:last-child {
-    border-right: none;
 }
 
 .project-nav a:hover {
-    background: #fff;
-    color: #000;
+    opacity: 0.6;
 }
 
 .project-nav a.nav-home {
-    flex: 0.8;
     font-weight: 700;
+    border: 1px solid #fff;
+}
+
+.project-nav a.nav-home:hover {
+    background: #fff;
+    color: #000;
+    opacity: 1;
 }
 
 /* === HERO ACCUEIL === */
@@ -188,7 +179,7 @@ nav {
 
 /* === HEADER PROJET === */
 .header-projet {
-    padding: 100px 32px 60px;
+    padding: 60px 32px;
     border-bottom: 1px solid #000;
 }
 
@@ -205,10 +196,7 @@ nav {
     line-height: 0.95;
 }
 
-/* Espace pour la nav fixe en bas */
-body:has(.project-nav) footer {
-    margin-bottom: 60px;
-}
+/* Suppression de l'espace en bas - plus de nav fixe */
 
 /* === LISTE PROJETS ACCUEIL === */
 .projects {
@@ -479,11 +467,6 @@ footer {
     text-transform: uppercase;
 }
 
-/* Pages projet : espace pour la nav fixe */
-.page-projet footer {
-    margin-bottom: 56px;
-}
-
 /* === LINKS BAR === */
 .links-bar {
     display: flex;
@@ -606,6 +589,17 @@ footer {
         padding: 16px 20px;
     }
 
+    /* Nav projet mobile */
+    .project-nav {
+        margin-top: 57px;
+        padding: 10px 16px;
+    }
+
+    .project-nav a {
+        font-size: 9px;
+        padding: 8px 12px;
+    }
+
     .hero-content {
         padding: 120px 20px 0;
     }
@@ -618,7 +612,11 @@ footer {
     }
 
     .header-projet {
-        padding: 80px 20px 40px;
+        padding: 40px 20px;
+    }
+
+    .header-projet h1 {
+        font-size: clamp(28px, 10vw, 50px);
     }
 
     .project {
@@ -659,19 +657,24 @@ footer {
     }
 
     .mockup-phone {
-        width: 220px;
-        height: 440px;
+        width: 200px;
+        height: 400px;
     }
 
     .mockup-tablet {
         width: 100%;
-        max-width: 320px;
-        height: 220px;
+        max-width: 280px;
+        height: 200px;
+    }
+
+    .mockup-poster {
+        width: 180px;
+        height: 260px;
     }
 
     .mockup-video {
         max-width: 100%;
-        padding: 40px 24px;
+        padding: 32px 20px;
     }
 
     .showcase-text {
@@ -736,24 +739,5 @@ footer {
     footer {
         padding: 16px 20px;
         font-size: 8px;
-    }
-
-    .project-nav {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        display: flex;
-    }
-
-    .project-nav a {
-        padding: 14px 6px;
-        font-size: 9px;
-        letter-spacing: 0.02em;
-    }
-
-    .mockup-poster {
-        width: 200px;
-        height: 290px;
     }
 }
