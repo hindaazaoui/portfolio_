@@ -77,31 +77,43 @@ nav {
 /* === NAVIGATION PROJET === */
 .project-nav {
     margin-top: 61px;
-    padding: 16px 32px;
+    padding: 14px 32px;
     border-bottom: 1px solid #000;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.project-nav a {
+.project-nav .back {
     font-size: 10px;
     letter-spacing: 0.05em;
-    opacity: 0.6;
+    opacity: 0.5;
     transition: opacity 0.2s;
 }
 
-.project-nav a:hover {
+.project-nav .back:hover {
     opacity: 1;
 }
 
-.project-nav .nav-arrows {
+.project-nav .arrows {
     display: flex;
-    gap: 24px;
+    gap: 12px;
 }
 
-.project-nav .nav-arrows a {
-    padding: 8px 0;
+.project-nav .arrows a {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    transition: all 0.2s;
+}
+
+.project-nav .arrows a:hover {
+    background: #000;
+    color: #fff;
 }
 
 /* === HERO ACCUEIL === */
@@ -587,15 +599,20 @@ footer {
 
     .project-nav {
         margin-top: 57px;
-        padding: 14px 20px;
+        padding: 12px 20px;
     }
 
-    .project-nav a {
+    .project-nav .back {
         font-size: 9px;
     }
 
-    .project-nav .nav-arrows {
-        gap: 16px;
+    .project-nav .arrows {
+        gap: 8px;
+    }
+
+    .project-nav .arrows a {
+        width: 36px;
+        height: 36px;
     }
 
     .hero-content {
