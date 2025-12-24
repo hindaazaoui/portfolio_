@@ -200,86 +200,27 @@ a {
     color: #fff;
 }
 
-/* === CURSOR NEO-BRUTAL === */
-body {
-    cursor: none;
-}
 
-/* Curseur principal - carré noir avec bordure blanche */
-.cursor {
-    width: 10px;
-    height: 10px;
-    background: #000;
-    border: 2px solid #fff;
-    border-radius: 0;
-    box-shadow: 0 0 0 2px #000;
-    position: fixed;
-    pointer-events: none;
-    z-index: 10001;
-    transition: transform 0.2s ease,
-                background 0.2s ease,
-                border-color 0.2s ease;
-}
-
-/* Cercle extérieur - carré avec ombre brutale */
+/* Pas de follower */
 .cursor-follower {
-    width: 20px;
-    height: 20px;
-    border: 4px solid #000;
-    border-radius: 0;
-    background: transparent;
-    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.2);
-    position: fixed;
-    pointer-events: none;
-    z-index: 10000;
-    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
-                width 0.4s ease,
-                height 0.4s ease,
-                box-shadow 0.4s ease;
+    display: none;
 }
 
-/* État hover */
+/* État hover - juste un scale subtil */
 .cursor.hover {
-    transform: scale(1.2);
-    background: #7aff7a;
-    border-color: #000;
-}
-
-.cursor-follower.hover {
-    width: 58px;
-    height: 58px;
-    transform: translate(-3px, -3px);
-    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.3);
+    transform: rotate(-45deg) scale(1.2);
 }
 
 /* État click */
 .cursor.click {
-    transform: scale(0.8);
-}
-
-.cursor-follower.click {
-    transform: scale(0.9);
-    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
-}
-
-/* Sur fond noir, inversé */
-.cursor-on-dark {
-    background: #fff;
-    border-color: #000;
-    box-shadow: 0 0 0 2px #fff;
-}
-
-.cursor-follower-on-dark {
-    border-color: #fff;
-    box-shadow: 6px 6px 0 rgba(255, 255, 255, 0.2);
+    transform: rotate(-45deg) scale(0.9);
 }
 
 @media (max-width: 768px) {
     body {
         cursor: auto;
     }
-    .cursor,
-    .cursor-follower {
+    .cursor {
         display: none;
     }
 }
