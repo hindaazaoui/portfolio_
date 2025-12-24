@@ -200,17 +200,20 @@ a {
     color: #fff;
 }
 
-/* === CURSOR ARROW === */
+/* === CURSOR DOT === */
 .cursor {
+    width: 8px;
+    height: 8px;
+    background: #09ff00;
+    border-radius: 0%;
     position: fixed;
     pointer-events: none;
     z-index: 10000;
-    font-size: 24px;
-    transition: transform 0.15s ease;
+    transition: transform 0.2s;
 }
 
 .cursor.hover {
-    transform: scale(1.5) rotate(-45deg);
+    transform: scale(3);
 }
 
 @media (max-width: 768px) {
@@ -531,7 +534,7 @@ nav {
 }
 
 .mockup-tablet {
-    width: 380px;
+    width: 450px;
     height: 280px;
     background: #000;
     border-radius: 20px;
