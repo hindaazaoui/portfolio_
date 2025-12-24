@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIND AAZAOUI — STRATÉGIE & CRÉATION</title>
+    
+    <link href="https://fonts.cdnfonts.com/css/lemon-milk" rel="stylesheet">
+
+    <style>
+        /* ========================================
+           HIND AAZAOUI — LANDING PAGE (V. PORTFOLIO)
+           ======================================== */
+
+        /* === RESET & BASE (Copie de style.css) === */
+        :root {
+            --bg: #fff;
+            --ink: #000;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Lemon Milk', sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            cursor: default;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        /* === UTILITAIRES (Copie de style.css) === */
+        .stroke {
+            -webkit-text-stroke: 1.5px #000;
+            -webkit-text-fill-color: transparent;
+            color: transparent; /* Fallback */
+        }
+
+        /* === 1. LOADER "AGENCE" === */
+        #loader-overlay {
+            position: fixed; inset: 0; background: #000; z-index: 9999;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+        }
+        
+        .loader-word {
+            position: absolute; color: #fff; 
+            font-size: clamp(24px, 5vw, 60px);
+            letter-spacing: 0.1em; font-weight: 300; opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .loader-progress {
+            position: absolute; bottom: 40px; right: 40px;
+            font-size: 10px; color: #fff; opacity: 0.5; letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* === 2. UI HEADER/FOOTER (Style "Barre de liens") === */
+        .ui-bar {
+            position: absolute; left: 0; right: 0; z-index: 20;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 32px;
+            font-size: 11px; letter-spacing: 0.1em; font-weight: 700; text-transform: uppercase;
+            background: transparent; /* Fond transparent pour laisser voir le design */
+        }
+        .top { top: 0; border-bottom: 1px solid transparent; } /* Ligne invisible pour l'instant */
+        .bottom { bottom: 0; border-top: 1px solid transparent; }
+
+        .status-dot {
+            width: 6px; height: 6px; background: #000; border-radius: 50%;
+            display: inline-block; margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* === 3. SCÈNE CENTRALE === */
+        .stage {
+            width: 100%; height: 100%;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            position: relative; perspective: 1000px;
+        }
+
+        /* LAYER 1 : TEXTE DE FOND (Style Hero Title) */
+        .bg-text {
+            position: absolute; z-index: 1; text-align: center; width: 100%;
+            pointer-events: none; top: 50%; transform: translateY(-50%);
+        }
+        .bg-text h1 {
+            font-size: clamp(60px, 12vw, 180px); 
+            line-height: 0.85; margin: 0;
+            /* Utilisation de la classe .stroke définie plus haut */
+            -webkit-text-stroke: 1.5px #000; 
+            -webkit-text-fill-color: transparent;
+            opacity: 0.15; /* Très léger comme un filigrane */
+        }
+        
+        /* LAYER 2 : IMAGE (Contraste N&B) */
+        .hero-visual {
+            position: relative; z-index: 5;
+            height: 45vh; width: auto;
+            /* Ombre portée plus dure, style "Collage" */
+            filter: drop-shadow(10px 10px 0px rgba(0,0,0,0.1)); 
+            transition: transform 0.1s ease-out;
+            margin-bottom: 20px;
+        }
+        .hero-visual img { height: 100%; width: auto; object-fit: contain; }
+
+        /* LAYER 3 : TEXTE PREMIER PLAN (Style Project Title) */
+        .fg-text {
+            position: relative; z-index: 10; text-align: center; width: 100%;
+            pointer-events: none;
+        }
+        .fg-text h2 {
+            font-size: clamp(24px, 5vw, 48px); 
+            color: #000; margin: 0;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+            background: #fff; /* Petit background pour détacher le texte si besoin */
+            padding: 0 10px;
+            display: inline-block;
+        }
+
+        /* === 4. CTA (Style .btn-primary) === */
+        .cta-container {
+            margin-top: 40px; z-index: 50; position: relative;
+        }
+
+        .btn-magnetic {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            padding: 20px 40px;
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 700;
+            border: 1px solid #000;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        
+        /* Effet Hover identique à ton style.css */
+        .btn-magnetic:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        @media (max-width: 768px) {
+            .bg-text h1 { font-size: 15vw; opacity: 0.1; }
+            .hero-visual { height: 35vh; }
+            .ui-bar { padding: 15px 20px; font-size: 9px; }
+            .fg-text h2 { font-size: 20px; }
+            .btn-magnetic { padding: 16px 32px; font-size: 10px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="loader-overlay">
+        <div class="loader-word">ANALYSE</div>
+        <div class="loader-word">STRATÉGIE</div>
+        <div class="loader-word">CRÉATION</div>
+        <div class="loader-progress">INITIALISATION...</div>
+    </div>
+
+    <div class="ui-bar top">
+        <span>HIND AAZAOUI</span>
+        <span>PORTFOLIO '25</span>
+    </div>
+
+    <div class="stage" id="scene">
+        
+        <div class="bg-text" data-speed="0.02">
+            <h1 class="stroke">NARRATION</h1>
+            <h1 class="stroke">NUMÉRIQUE</h1>
+        </div>
+
+        <div class="hero-visual" data-speed="0.04">
+            <img src="hind-face.png" alt="Hind Aazaoui">
+        </div>
+
+        <div class="fg-text" data-speed="0.05">
+            <h2>STRATÉGIE & IMPACT</h2>
+        </div>
+
+        <div class="cta-container">
+            <a href="portfolio.html" class="btn-magnetic" id="magnet-btn">
+                VOIR LES PROJETS
+            </a>
+        </div>
+    </div>
+
+    <div class="ui-bar bottom">
+        <span style="display:flex; align-items:center;"><span class="status-dot"></span> DISPONIBLE AVRIL</span>
+        <span>BORDEAUX / REMOTE</span>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <script>
+        // === 1. CHARGEMENT ===
+        const words = document.querySelectorAll('.loader-word');
+        const tl = gsap.timeline();
+
+        // Séquence des mots
+        words.forEach((word) => {
+            tl.to(word, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" })
+              .to(word, { opacity: 0, y: -20, duration: 0.4, delay: 0.2 });
+        });
+
+        // Ouverture rideau noir
+        tl.to('#loader-overlay', {
+            height: 0,
+            duration: 1,
+            ease: "expo.inOut",
+            onComplete: () => { document.getElementById('loader-overlay').style.display = 'none'; }
+        })
+        // Entrée des éléments
+        .from('.hero-visual', { scale: 1.1, opacity: 0, duration: 1, ease: "power3.out" }, "-=0.8")
+        .from('.bg-text', { scale: 0.9, opacity: 0, duration: 1 }, "-=0.9")
+        .from('.fg-text', { y: 20, opacity: 0, duration: 0.8 }, "-=0.6")
+        .from('.cta-container', { y: 20, opacity: 0, duration: 0.8 }, "-=0.6")
+        .from('.ui-bar', { opacity: 0, duration: 1 }, "-=0.6");
+
+        // === 2. PARALLAXE (Pour garder l'effet premium) ===
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX - window.innerWidth / 2);
+            const y = (e.clientY - window.innerHeight / 2);
+
+            document.querySelectorAll('[data-speed]').forEach(layer => {
+                const speed = layer.getAttribute('data-speed');
+                gsap.to(layer, { x: x * speed, y: y * speed, duration: 1, ease: "power2.out" });
+            });
+        });
+
+        // === 3. MAGNÉTISME BOUTON (UX Awwwards) ===
+        const btn = document.getElementById('magnet-btn');
+        
+        document.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const distX = e.clientX - (rect.left + rect.width / 2);
+            const distY = e.clientY - (rect.top + rect.height / 2);
+
+            // Attraction si la souris est proche (150px)
+            if (Math.abs(distX) < 150 && Math.abs(distY) < 100) {
+                gsap.to(btn, { 
+                    x: distX * 0.2, 
+                    y: distY * 0.2, 
+                    duration: 0.3 
+                });
+            } else {
+                gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: "elastic.out(1, 0.3)" });
+            }
+        });
+
+        // === 4. TRANSITION DE SORTIE ===
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const link = btn.getAttribute('href');
+            // Transition "Fade Out"
+            gsap.to('body', { opacity: 0, duration: 0.5, onComplete: () => { window.location.href = link; }});
+        });
+    </script>
+</body>
+</html>
