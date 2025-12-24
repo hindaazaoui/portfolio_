@@ -1,4 +1,4 @@
-// === CURSEUR SIMPLE & CHILL ===
+// === CURSEUR NEO-BRUTAL ===
 document.addEventListener('DOMContentLoaded', function() {
     // Créer les éléments du curseur
     const cursor = document.createElement('div');
@@ -19,26 +19,26 @@ document.addEventListener('DOMContentLoaded', function() {
         mouseX = e.clientX;
         mouseY = e.clientY;
         
-        // Curseur principal suit directement
-        cursor.style.left = mouseX - 4 + 'px';
-        cursor.style.top = mouseY - 4 + 'px';
+        // Curseur principal suit directement (ajusté pour centrer le carré)
+        cursor.style.left = mouseX - 7 + 'px';
+        cursor.style.top = mouseY - 7 + 'px';
     });
 
-    // Animation fluide du cercle suiveur - plus lent pour effet chill
+    // Animation fluide du carré suiveur
     function animateFollower() {
-        const speed = 0.12; // Plus lent = plus chill
+        const speed = 0.12;
         
         followerX += (mouseX - followerX) * speed;
         followerY += (mouseY - followerY) * speed;
         
-        cursorFollower.style.left = followerX - 16 + 'px';
-        cursorFollower.style.top = followerY - 16 + 'px';
+        cursorFollower.style.left = followerX - 23 + 'px';
+        cursorFollower.style.top = followerY - 23 + 'px';
         
         requestAnimationFrame(animateFollower);
     }
     animateFollower();
 
-    // Effets hover - simple et élégant
+    // Effets hover
     const interactiveElements = document.querySelectorAll('a, button, .project, .contact-quick-item');
     
     interactiveElements.forEach(function(el) {
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Effet click - doux
+    // Effet click
     document.addEventListener('mousedown', function() {
         cursor.classList.add('click');
         cursorFollower.classList.add('click');
