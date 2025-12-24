@@ -200,24 +200,77 @@ a {
     color: #fff;
 }
 
-/* === CURSOR DOT === */
+/* === CURSOR CUSTOM === */
+body {
+    cursor: none;
+}
+
+/* Curseur principal - simple et élégant */
 .cursor {
     width: 8px;
     height: 8px;
-    background: #09ff00;
-    border-radius: 0%;
+    background: #000;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 10001;
+    transition: transform 0.2s ease,
+                background 0.2s ease;
+}
+
+/* Cercle extérieur - minimaliste */
+.cursor-follower {
+    width: 32px;
+    height: 32px;
+    border: 1.5px solid rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
     position: fixed;
     pointer-events: none;
     z-index: 10000;
-    transition: transform 0.2s;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+                width 0.4s ease,
+                height 0.4s ease,
+                border-color 0.4s ease;
 }
 
+/* État hover - subtle */
 .cursor.hover {
-    transform: scale(3);
+    transform: scale(1.5);
+    background: #000;
+}
+
+.cursor-follower.hover {
+    width: 50px;
+    height: 50px;
+    border-color: rgba(0, 0, 0, 0.6);
+}
+
+/* État click - doux */
+.cursor.click {
+    transform: scale(0.8);
+}
+
+.cursor-follower.click {
+    transform: scale(0.9);
+}
+
+/* Sur fond noir, curseur devient blanc */
+.cursor-on-dark {
+    background: #fff;
+}
+
+.cursor-follower-on-dark {
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 @media (max-width: 768px) {
-    .cursor { display: none; }
+    body {
+        cursor: auto;
+    }
+    .cursor,
+    .cursor-follower {
+        display: none;
+    }
 }
 
 /* === UTILITAIRES === */
@@ -655,6 +708,66 @@ nav {
 }
 
 /* === CONTACT === */
+.contact-quick {
+    background: #000;
+    color: #fff;
+    padding: 60px 32px;
+    border-bottom: 1px solid #333;
+}
+
+.contact-quick-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-quick-title {
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.contact-quick-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.contact-quick-item {
+    background: #111;
+    padding: 32px 24px;
+    border: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: all 0.2s;
+}
+
+.contact-quick-item:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+    transform: translateY(-4px);
+}
+
+.contact-quick-label {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.5;
+}
+
+.contact-quick-item:hover .contact-quick-label {
+    opacity: 0.7;
+}
+
+.contact-quick-value {
+    font-size: 13px;
+    font-weight: 400;
+    word-break: break-word;
+}
+
 .contact {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -814,4 +927,12 @@ footer {
 
     /* Services grid */
     .services-grid { max-width: 100%; }
+
+    /* Contact quick */
+    .contact-quick { padding: 40px 20px; }
+    .contact-quick-links { 
+        grid-template-columns: 1fr; 
+        gap: 16px;
+    }
+    .contact-quick-item { padding: 24px 20px; }
 }
