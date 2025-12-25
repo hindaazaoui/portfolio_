@@ -1,9 +1,20 @@
 /* ========================================
    HIND AAZAOUI — PORTFOLIO
-   CSS Optimisé
+   CSS Optimisé — Version Pro
+   Lemon Milk (titres) + Inter (texte courant)
    ======================================== */
 
 @import url('https://fonts.cdnfonts.com/css/lemon-milk');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+    --font-display: 'Lemon Milk', sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --bg: #fff;
+    --ink: #000;
+    --muted: #666;
+    --divider: #000;
+}
 
 /* === RESET & BASE === */
 * {
@@ -17,9 +28,9 @@ html {
 }
 
 body {
-    font-family: 'Lemon Milk', sans-serif;
-    background: #fff;
-    color: #000;
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--ink);
     line-height: 1.6;
 }
 
@@ -62,6 +73,7 @@ a {
 }
 
 .service-name {
+    font-family: var(--font-display);
     font-size: 9px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -117,6 +129,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: var(--font-display);
     font-size: 32px;
     font-weight: 700;
     letter-spacing: 0.1em;
@@ -127,6 +140,7 @@ a {
 }
 
 .about-title {
+    font-family: var(--font-display);
     font-size: 12px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -136,11 +150,13 @@ a {
 }
 
 .about-text {
+    font-family: var(--font-body);
     font-size: 14px;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.8;
     max-width: 500px;
     margin-bottom: 16px;
+    color: var(--muted);
 }
 
 .about-skills {
@@ -151,8 +167,10 @@ a {
 }
 
 .about-skills span {
-    font-size: 9px;
-    letter-spacing: 0.08em;
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     padding: 8px 14px;
     border: 1px solid #000;
@@ -171,6 +189,7 @@ a {
 }
 
 .btn-primary {
+    font-family: var(--font-display);
     font-size: 10px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -187,6 +206,7 @@ a {
 }
 
 .btn-secondary {
+    font-family: var(--font-display);
     font-size: 10px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -199,7 +219,6 @@ a {
     background: #000;
     color: #fff;
 }
-
 
 /* Pas de follower */
 .cursor-follower {
@@ -241,27 +260,122 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 32px;
+    padding: 16px 32px;
     background: #fff;
     border-bottom: 1px solid #000;
 }
 
+/* Logo avec avatar */
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.5px solid #000;
+}
+
+.logo-text {
+    font-family: var(--font-display);
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 0.1em;
 }
 
-.nav-contact {
+/* Navigation - Style unifié */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-link {
+    font-family: var(--font-display);
     font-size: 10px;
     font-weight: 400;
-    letter-spacing: 0.1em;
-    padding: 10px 20px;
-    border: 1px solid #000;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    border: 1px solid transparent;
     transition: all 0.2s ease;
 }
 
-.nav-contact:hover {
+.nav-link:hover {
+    border-color: #000;
+}
+
+.nav-link.active {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+/* Menu hamburger mobile */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #000;
+    transition: all 0.3s ease;
+}
+
+/* Menu mobile overlay */
+.nav-mobile {
+    display: none;
+    position: fixed;
+    top: 65px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-bottom: 1px solid #000;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    z-index: 99;
+}
+
+.nav-mobile.open {
+    max-height: 300px;
+    padding: 16px 0;
+}
+
+.nav-mobile a {
+    display: block;
+    padding: 14px 32px;
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-bottom: 1px solid #eee;
+    transition: all 0.2s ease;
+}
+
+.nav-mobile a:last-child {
+    border-bottom: none;
+}
+
+.nav-mobile a:hover,
+.nav-mobile a.active {
     background: #000;
     color: #fff;
 }
@@ -280,6 +394,7 @@ nav {
 }
 
 .hero-title {
+    font-family: var(--font-display);
     font-size: clamp(44px, 11vw, 140px);
     font-weight: 700;
     line-height: 0.9;
@@ -288,12 +403,14 @@ nav {
 }
 
 .hero-baseline {
+    font-family: var(--font-body);
     margin-top: 48px;
-    font-size: clamp(13px, 1.8vw, 16px);
+    font-size: clamp(14px, 1.8vw, 16px);
     font-weight: 400;
-    letter-spacing: 0.08em;
-    opacity: 0.7;
+    letter-spacing: 0.02em;
+    color: var(--muted);
     max-width: 400px;
+    line-height: 1.7;
 }
 
 .hero-sub {
@@ -305,16 +422,19 @@ nav {
 }
 
 .hero-role {
-    font-size: 10px;
-    font-weight: 300;
-    letter-spacing: 0.08em;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
+    color: var(--muted);
 }
 
 .hero-available {
-    font-size: 10px;
-    font-weight: 400;
-    letter-spacing: 0.08em;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     display: flex;
     align-items: center;
@@ -350,13 +470,16 @@ nav {
 }
 
 .header-projet .label {
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    opacity: 0.5;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--muted);
     margin-bottom: 16px;
 }
 
 .header-projet h1 {
+    font-family: var(--font-display);
     font-size: clamp(32px, 8vw, 90px);
     text-transform: uppercase;
     line-height: 0.95;
@@ -421,13 +544,15 @@ nav {
 }
 
 .project-number {
-    font-size: 10px;
-    font-weight: 300;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 400;
     letter-spacing: 0.05em;
-    opacity: 0.5;
+    color: var(--muted);
 }
 
 .project-title {
+    font-family: var(--font-display);
     font-size: clamp(20px, 4vw, 36px);
     font-weight: 700;
     text-transform: uppercase;
@@ -435,12 +560,21 @@ nav {
 }
 
 .project-tag {
-    font-size: 9px;
-    font-weight: 300;
-    letter-spacing: 0.1em;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     margin-left: 20px;
-    opacity: 0.6;
+    color: var(--muted);
+}
+
+.project:hover .project-tag {
+    color: rgba(255,255,255,0.6);
+}
+
+.project:hover .project-number {
+    color: rgba(255,255,255,0.6);
 }
 
 .project-arrow {
@@ -465,16 +599,20 @@ nav {
 }
 
 .dashboard-item .label {
-    font-size: 8px;
-    opacity: 0.5;
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--muted);
     text-transform: uppercase;
+    letter-spacing: 0.08em;
     margin-bottom: 8px;
     display: block;
 }
 
 .dashboard-item .value {
-    font-size: 11px;
-    font-weight: 700;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
 }
 
 /* === SHOWCASE === */
@@ -498,6 +636,7 @@ nav {
 }
 
 .showcase-text h2 {
+    font-family: var(--font-display);
     font-size: 12px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -507,10 +646,12 @@ nav {
 }
 
 .showcase-text p {
+    font-family: var(--font-body);
     font-size: 14px;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.8;
     max-width: 420px;
+    color: var(--muted);
 }
 
 .showcase-text p + h2 {
@@ -616,6 +757,7 @@ nav {
 }
 
 .stats-item .value {
+    font-family: var(--font-display);
     font-size: 46px;
     font-weight: 700;
     display: block;
@@ -628,10 +770,12 @@ nav {
 }
 
 .stats-item .label {
-    font-size: 8px;
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 400;
     opacity: 0.6;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
 }
 
 /* === LINKS BAR === */
@@ -643,8 +787,10 @@ nav {
 .links-bar a {
     flex: 1;
     padding: 16px 32px;
-    font-size: 10px;
-    letter-spacing: 0.05em;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
     text-align: center;
     border-right: 1px solid #000;
     transition: all 0.2s ease;
@@ -673,6 +819,7 @@ nav {
 }
 
 .contact-quick-title {
+    font-family: var(--font-display);
     font-size: clamp(24px, 4vw, 36px);
     font-weight: 700;
     text-transform: uppercase;
@@ -704,8 +851,10 @@ nav {
 }
 
 .contact-quick-label {
-    font-size: 9px;
-    letter-spacing: 0.15em;
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     opacity: 0.5;
 }
@@ -715,7 +864,8 @@ nav {
 }
 
 .contact-quick-value {
-    font-size: 13px;
+    font-family: var(--font-body);
+    font-size: 14px;
     font-weight: 400;
     word-break: break-word;
 }
@@ -731,6 +881,7 @@ nav {
 }
 
 .contact-title {
+    font-family: var(--font-display);
     font-size: clamp(28px, 5vw, 56px);
     font-weight: 700;
     text-transform: uppercase;
@@ -749,9 +900,10 @@ nav {
     align-items: center;
     padding: 0 32px;
     border-bottom: 1px solid #000;
-    font-size: 11px;
+    font-family: var(--font-body);
+    font-size: 13px;
     font-weight: 400;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.02em;
     transition: all 0.2s ease;
 }
 
@@ -766,11 +918,16 @@ nav {
 }
 
 .contact-link span {
-    font-weight: 300;
+    font-family: var(--font-body);
+    font-weight: 400;
     font-size: 10px;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    opacity: 0.5;
+    color: var(--muted);
+}
+
+.contact-link:hover span {
+    color: rgba(255,255,255,0.5);
 }
 
 /* === FOOTER === */
@@ -780,17 +937,40 @@ footer {
     align-items: center;
     padding: 20px 32px;
     border-top: 1px solid #000;
-    font-size: 9px;
-    font-weight: 300;
-    letter-spacing: 0.1em;
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
+    color: var(--muted);
 }
 
 /* === RESPONSIVE === */
 @media (max-width: 768px) {
     nav { 
-        padding: 16px 20px; 
+        padding: 12px 20px; 
         background: #ffffff;
+    }
+
+    .logo-avatar {
+        width: 28px;
+        height: 28px;
+    }
+
+    .logo-text {
+        font-size: 10px;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-mobile {
+        display: block;
     }
 
     .hero-content { padding: 120px 20px 0; }
@@ -863,7 +1043,7 @@ footer {
     }
     .contact-link { padding: 20px; }
 
-    footer { padding: 16px 20px; font-size: 8px; }
+    footer { padding: 16px 20px; font-size: 9px; }
 
     /* À propos */
     .about { grid-template-columns: 1fr; }

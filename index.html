@@ -35,9 +35,28 @@
     <div class="loader" id="loader"></div>
 
     <nav>
-        <a href="index.html" class="logo">HIND AAZAOUI</a>
-        <a href="#contact" class="nav-contact">Contact</a>
+        <a href="index.html" class="logo">
+            <img src="hind-face.png" alt="Hind" class="logo-avatar">
+            <span class="logo-text">HIND AAZAOUI</span>
+        </a>
+        <div class="nav-menu">
+            <a href="index.html" class="nav-link active">Accueil</a>
+            <a href="#projects" class="nav-link">Projets</a>
+            <a href="a-propos.html" class="nav-link">À Propos</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <button class="nav-toggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
+    <div class="nav-mobile">
+        <a href="index.html" class="active">Accueil</a>
+        <a href="#projects">Projets</a>
+        <a href="a-propos.html">À Propos</a>
+        <a href="#contact">Contact</a>
+    </div>
 
     <section class="hero">
         <div class="hero-content">
@@ -55,7 +74,7 @@
         </div>
     </section>
 
-    <section class="projects">
+    <section class="projects" id="projects">
         <a href="projet-bozar.html" class="project">
             <div class="project-main">
                 <span class="project-number">01</span>
@@ -82,7 +101,6 @@
             </div>
             <span class="project-arrow">↗</span>
         </a>
-
     </section>
 
     <section class="contact" id="contact">
@@ -113,8 +131,8 @@
         <p>BUT MMI Bordeaux</p>
     </footer>
 
-    <script src="cursor.js"></script>
     <script>
+        // Loader
         window.addEventListener('load', function() {
             const loader = document.getElementById('loader');
             setTimeout(function() {
@@ -124,6 +142,15 @@
                 }, 600);
             }, 300);
         });
+
+        // Menu mobile toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMobile = document.querySelector('.nav-mobile');
+        if (navToggle && navMobile) {
+            navToggle.addEventListener('click', function() {
+                navMobile.classList.toggle('open');
+            });
+        }
     </script>
 </body>
 </html>

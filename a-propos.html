@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>À Propos — Hind Aazaoui</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* === LOADER MINIMAL === */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 9999;
+        }
+        
+        .loader.hide {
+            animation: wipeUp 0.6s ease forwards;
+        }
+        
+        @keyframes wipeUp {
+            to { 
+                transform: translateY(-100%);
+            }
+        }
+
+        /* === HEADER PAGE === */
+        .page-header {
+            padding: 140px 32px 60px;
+            border-bottom: 1px solid #000;
+        }
+
+        .big-title {
+            font-family: var(--font-display);
+            font-size: clamp(40px, 8vw, 100px);
+            line-height: 0.9;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            margin-top: 24px;
+            font-family: var(--font-body);
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            opacity: 0.6;
+            text-transform: uppercase;
+        }
+
+        /* === EFFET VISION TROUBLE === */
+        body.blurry > *:not(.loader):not(nav):not(.nav-mobile) {
+            filter: blur(10px);
+            pointer-events: none;
+        }
+
+        body.blurry .about-photo, 
+        body.blurry .goofy-glasses {
+            filter: blur(0) !important;
+            pointer-events: auto;
+        }
+
+        /* === ABOUT SPECIFIQUE === */
+        .about-photo {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border-radius: 0;
+            border: none;
+            height: auto;
+            overflow: visible;
+        }
+
+        .goofy-glasses {
+            width: 130%;
+            height: auto;
+            transform: rotate(-8deg);
+            filter: drop-shadow(12px 12px 0px rgba(0,0,0,0.1));
+            animation: goofyFloat 7s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+
+        @keyframes goofyFloat {
+            0%, 100% { transform: rotate(-8deg) translateY(0); }
+            50% { transform: rotate(-4deg) translateY(-20px); }
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 120px 20px 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="loader" id="loader"></div>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="hind-face.png" alt="Hind" class="logo-avatar">
+            <span class="logo-text">HIND AAZAOUI</span>
+        </a>
+        <div class="nav-menu">
+            <a href="index.html" class="nav-link">Accueil</a>
+            <a href="index.html#projects" class="nav-link">Projets</a>
+            <a href="a-propos.html" class="nav-link active">À Propos</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <button class="nav-toggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+    <div class="nav-mobile">
+        <a href="index.html">Accueil</a>
+        <a href="index.html#projects">Projets</a>
+        <a href="a-propos.html" class="active">À Propos</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <header class="page-header">
+        <h1 class="big-title">Focus & <span class="stroke">Vision.</span></h1>
+        <p class="subtitle">Rigueur technique et correction optique.</p>
+    </header>
+
+    <section class="about">
+        <div class="about-left">
+            <div class="about-photo" id="glassesAction">
+                <img src="https://lpt-prod-frames.imgix.net/LPT512/LPT512-BFT-002.png" alt="Lunettes Hind" class="goofy-glasses">
+            </div>
+        </div>
+        
+        <div class="about-right">
+            <h2 class="about-title">La mise au point</h2>
+            <p class="about-text">
+                On dit souvent qu'il faut avoir une vision d'ensemble. La mienne dépend d'une monture en acétate, mais elle me permet de <strong>cadrer vos projets au pixel près</strong>.
+            </p>
+            <p class="about-text">
+                Étudiante en BUT MMI, je ne me contente pas de regarder les problèmes : je conçois les solutions digitales, du code à la stratégie de contenu.
+            </p>
+
+            <div class="about-skills">
+                <span>Stratégie</span>
+                <span>Webdesign</span>
+                <span>Rédaction</span>
+                <span>Correction 2.0</span>
+            </div>
+
+            <a href="CV_Hind_Aazaoui.pdf" target="_blank" class="btn-primary">Voir mon Parcours</a>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="contact-left">
+            <h2 class="contact-title">
+                <span class="stroke">Let's</span><br>
+                Work
+            </h2>
+        </div>
+        <div class="contact-right">
+            <a href="mailto:hind.aazaoui.pro@gmail.com" class="contact-link">
+                hind.aazaoui.pro@gmail.com
+                <span>Email</span>
+            </a>
+            <a href="tel:+33641893174" class="contact-link">
+                06 41 89 31 74
+                <span>Tél</span>
+            </a>
+            <a href="https://www.linkedin.com/in/hindaa/" target="_blank" class="contact-link">
+                LinkedIn
+                <span>Pro</span>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025</p>
+        <p>BUT MMI Bordeaux</p>
+    </footer>
+
+    <script>
+        // Gestion du Loader
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.classList.add('hide');
+                setTimeout(() => loader.style.display = 'none', 600);
+            }, 300);
+        });
+
+        // Interaction Goofy : La Mise au Point
+        const glasses = document.getElementById('glassesAction');
+        const body = document.body;
+
+        glasses.addEventListener('click', () => {
+            body.classList.toggle('blurry');
+        });
+
+        // Menu mobile toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMobile = document.querySelector('.nav-mobile');
+        if (navToggle && navMobile) {
+            navToggle.addEventListener('click', function() {
+                navMobile.classList.toggle('open');
+            });
+        }
+    </script>
+</body>
+</html>
