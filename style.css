@@ -144,7 +144,7 @@ a {
     font-size: 12px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    margin-bottom: 24px;
+    margin-bottom: 50px;
     border-left: 4px solid #000;
     padding-left: 15px;
 }
@@ -311,7 +311,7 @@ nav {
 
 .nav-link.active {
     background: #000;
-    color: #fff;
+    color: #ffffff;
     border-color: #000;
 }
 
@@ -543,12 +543,12 @@ nav {
 }
 
 .project:hover {
-    background: #000;
-    color: #fff;
+    background: #000000;
+    color: hsl(0, 0%, 100%);
 }
 
 .project:hover .stroke {
-    -webkit-text-stroke-color: #fff;
+    -webkit-text-stroke-color: #000000;
 }
 
 .project:hover .project-arrow {
@@ -598,7 +598,9 @@ nav {
 .project-arrow {
     font-size: 20px;
     transition: transform 0.2s ease;
+    color: #111;
 }
+
 
 /* === DASHBOARD === */
 .dashboard {
@@ -799,7 +801,7 @@ nav {
 /* === LINKS BAR === */
 .links-bar {
     display: flex;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #ff0000;
 }
 
 .links-bar a {

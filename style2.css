@@ -861,8 +861,8 @@ nav {
 }
 
 .contact-quick-item:hover {
-    background: #fff;
-    color: #000;
+    background: #2fff32;
+    color: #ffffff;
     border-color: #fff;
     transform: translateY(-4px);
 }
@@ -966,7 +966,7 @@ footer {
 @media (max-width: 768px) {
     nav { 
         padding: 12px 20px; 
-        background: #ffffff;
+        background: #000000;
     }
 
     .logo-avatar {
