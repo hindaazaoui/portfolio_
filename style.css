@@ -511,7 +511,9 @@ nav {
 .header-projet .nav-arrows a {
     width: 40px;
     height: 40px;
-    border: 1px solid #000;
+    border: 1px solid #000000;
+    background-color: #6dff70;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -548,7 +550,7 @@ nav {
 }
 
 .project:hover .stroke {
-    -webkit-text-stroke-color: #000000;
+    -webkit-text-stroke-color: #ffffff;
 }
 
 .project:hover .project-arrow {
@@ -588,11 +590,11 @@ nav {
 }
 
 .project:hover .project-tag {
-    color: rgba(255,255,255,0.6);
+    color: rgba(0, 255, 64, 0.6);
 }
 
 .project:hover .project-number {
-    color: rgba(255,255,255,0.6);
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .project-arrow {
@@ -801,7 +803,7 @@ nav {
 /* === LINKS BAR === */
 .links-bar {
     display: flex;
-    border-bottom: 1px solid #ff0000;
+    border-bottom: 1px solid #000000;
 }
 
 .links-bar a {
