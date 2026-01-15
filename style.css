@@ -417,13 +417,13 @@ nav {
     line-height: 0.9;
     letter-spacing: -0.02em;
     text-transform: uppercase;
-    padding-bottom: 5px
+    padding-bottom: 500px
 }
 
 .hero-baseline {
     font-family: var(--font-body);
     margin-top: 48px;
-    font-size: clamp(14px, 1.8vw, 16px);
+    font-size: clamp(10px, 1.8vw, 16px);
     font-weight: 400;
     letter-spacing: 0.02em;
     color: var(--muted);
