@@ -417,7 +417,7 @@ nav {
     line-height: 0.9;
     letter-spacing: -0.02em;
     text-transform: uppercase;
-    padding-bottom: 75px
+    padding-bottom: 78px
 }
 
 .hero-baseline {
@@ -512,7 +512,7 @@ nav {
     width: 40px;
     height: 40px;
     border: 1px solid #000000;
-    background-color: #ceff6d;
+    background-color: #ffffff;
 
     display: flex;
     align-items: center;
@@ -590,7 +590,7 @@ nav {
 }
 
 .project:hover .project-tag {
-    color: rgb(86, 255, 89);
+    color: rgb(255, 255, 255);
 }
 
 .project:hover .project-number {
