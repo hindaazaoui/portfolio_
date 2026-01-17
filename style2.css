@@ -861,7 +861,7 @@ nav {
 }
 
 .contact-quick-item:hover {
-    background: #2fff32;
+    background: #000000;
     color: #ffffff;
     border-color: #fff;
     transform: translateY(-4px);
