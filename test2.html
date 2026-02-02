@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="" href="favicon.ico">
+    <title> Portfolio Hind Aazaoui - Communicante & Média | Communicante.cool le portfolio de votre future stagiaire / alternante </title>
+    <meta name="description" content="Portfolio de Hind Aazaoui, étudiante en BUT MMI à Bordeaux. Stratégie de contenu, Web & Événementiel. Disponible pour stage (avril 2026) et alternance.">
+    <meta name="description" content="Hind Aazaoui | Communicante & Média. Un profil polyvalent en rédaction, web et audiovisuel. Étudiante MMI Bordeaux disponible pour stage/alternance 2026.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* === LOADER MINIMAL === */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 9999;
+        }
+        .loader.hide {
+            animation: wipeUp 0.6s ease forwards;
+        }
+        
+        @keyframes wipeUp {
+            to { 
+                transform: translateY(-100%);
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Loader -->
+    <div class="loader" id="loader"></div>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="hind-face.png" alt="Hind" class="logo-avatar">
+            <span class="logo-text">HIND</span>
+        </a>
+        <div class="nav-menu">
+            <a href="index.html" class="nav-link active">Accueil</a>
+            <a href="projet-bozar.html" class="nav-link">Projets</a>
+            <a href="a-propos.html" class="nav-link">À Propos</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <button class="nav-toggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+    <div class="nav-mobile">
+        <a href="index.html" class="active">Accueil</a>
+        <a href="projet-bozar.html">Projets</a>
+        <a href="a-propos.html">À Propos</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Les bonnes<br>
+                <span class="stroke">histoires</span><br>
+                n'ont pas<br>
+                de format
+            </h1>
+          
+            <div>
+
+            </div>
+        </div>
+        <div class="hero-sub">
+            <p class="hero-role">Contenu · Stratégie · Web · Événementiel</p>
+            <p class="hero-available">Stage avril–juillet 2026 avec possibilité d'alternance</p>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <a href="projet-bozar.html" class="project">
+            <div class="project-main">
+                <span class="project-number">01</span>
+                <h2 class="project-title"> Community <span class="stroke"> Management </span></h2>
+                <span class="project-tag">Instagram &amp; événementiel</span>
+            </div>
+            <span class="project-arrow">↗</span>
+        </a>
+
+        <a href="projet-mmi.html" class="project">
+            <div class="project-main">
+                <span class="project-number">02</span>
+                <h2 class="project-title">Projets <span class="stroke">MMI</span></h2>
+                <span class="project-tag">Dev web &amp; audiovisuel</span>
+            </div>
+            <span class="project-arrow">↗</span>
+        </a>
+
+        <a href="projet-letype.html" class="project">
+            <div class="project-main">
+                <span class="project-number">03</span>
+                <h2 class="project-title"><span class="stroke">Le</span> Type</h2>
+                <span class="project-tag">Rédaction culturelle</span>
+            </div>
+            <span class="project-arrow">↗</span>
+        </a>
+        
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="contact-left">
+            <h2 class="contact-title">
+                <span class="stroke">Let's</span><br>
+                Work
+            </h2>
+        </div>
+        <div class="contact-right">
+            <a href="mailto:hind.aazaoui@mmibordeaux.com" class="contact-link">
+                hindcommunicante@proton.me
+                <span>Email</span>
+            </a>
+          
+            <a href="https://www.linkedin.com/in/hindaa/" target="_blank" class="contact-link">
+                LinkedIn
+                <span>Pro</span>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025</p>
+        <p>BUT MMI Bordeaux</p>
+    </footer>
+
+    <script>
+        // Loader
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('loader');
+            setTimeout(function() {
+                loader.classList.add('hide');
+                setTimeout(function() {
+                    loader.style.display = 'none';
+                }, 600);
+            }, 300);
+        });
+
+        // Menu mobile toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMobile = document.querySelector('.nav-mobile');
+        
+        if (navToggle && navMobile) {
+            navToggle.addEventListener('click', function() {
+                navToggle.classList.toggle('active');
+                navMobile.classList.toggle('open');
+                document.body.style.overflow = navMobile.classList.contains('open') ? 'hidden' : '';
+            });
+
+            // Fermer le menu quand on clique sur un lien
+            navMobile.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    navToggle.classList.remove('active');
+                    navMobile.classList.remove('open');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+    </script>
+</body>
+</html>
